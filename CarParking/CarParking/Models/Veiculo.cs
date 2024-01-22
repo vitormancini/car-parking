@@ -106,5 +106,10 @@
             Placa = veiculoAlterado.Placa;
             Cor = veiculoAlterado.Cor;
         }
+
+        public override string ToString()
+        {
+            return $"Ficha do veiculo\n----------\nPlaca: {Placa}\nProprietario: {Proprietario}\nCor: {Cor}\nHora entrada: {HoraEntrada}\n\n";
+        }
     }
 }

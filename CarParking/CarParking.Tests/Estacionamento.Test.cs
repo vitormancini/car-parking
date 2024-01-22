@@ -107,9 +107,23 @@ namespace CarParking.Tests
             veiculoAlterado.Proprietario = "Vitor";
             veiculoAlterado.Cor = "Azul"; // Alteração
 
-            Veiculo alterado = estacionamento.AlterarDadosVeiculo(veiculoAlterado);
+            Veiculo alterado = estacionamento.AlterarDadosVeiculo(veiculoAlterado); // Método ainda não existente. Teste criado primeiro
 
             Assert.Equal(alterado.Cor, veiculoAlterado.Cor);
+        }
+
+        // Contains
+        [Fact]
+        public void ValidaFichaVeiculo()
+        {
+            Veiculo veiculo = new Veiculo();
+            veiculo.Placa = "AAA-1111";
+            veiculo.Proprietario = "Vitor";
+            veiculo.Cor = "Preto";
+
+            string ficha = veiculo.ToString();
+
+            Assert.Contains("Ficha do veiculo", ficha);
         }
     }
 }
