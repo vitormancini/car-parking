@@ -33,6 +33,8 @@
                 {
                     throw new FormatException("Cor deve conter pelo menos 3 letras");
                 }
+
+                _cor = value;
             }
         }
         public string Proprietario
@@ -96,6 +98,13 @@
                 }
                 _placa = value.ToUpper();
             }
+        }
+
+        public void AlterarDados(Veiculo veiculoAlterado)
+        {
+            Proprietario = veiculoAlterado.Proprietario;
+            Placa = veiculoAlterado.Placa;
+            Cor = veiculoAlterado.Cor;
         }
     }
 }

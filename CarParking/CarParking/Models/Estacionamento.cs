@@ -78,5 +78,26 @@ namespace CarParking.Models
         {
             Console.WriteLine($"\nTotal faturado até o momento: {Faturamento.ToString("C", CultureInfo.CreateSpecificCulture("pt-BR"))}");
         }
+
+        public Veiculo LocalizaVeiculo(string placa)
+        {
+            Veiculo? encontrado = Veiculos.Where(v => v.Placa == placa).FirstOrDefault();
+
+            return encontrado;
+        }
+
+        public Veiculo AlterarDadosVeiculo(Veiculo veiculoAlterado)
+        {
+            Veiculo? temp = Veiculos.Where(v => v.Placa == veiculoAlterado.Placa).FirstOrDefault();
+
+            if (temp == null)
+            {
+                throw new Exception($"Veiculo com a placa {veiculoAlterado.Placa} não encontrado");
+            }
+
+            temp.AlterarDados(veiculoAlterado);
+
+            return temp;
+        }
     }
 }
